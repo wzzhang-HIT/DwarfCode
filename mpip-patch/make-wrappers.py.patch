@@ -1,0 +1,59 @@
+--- ../mpip-code/make-wrappers.py	2014-11-11 15:25:49.181925462 +0800
++++ make-wrappers.py.ori	2010-05-04 17:17:59.000000000 +0800
+@@ -783,6 +783,42 @@
+     # capture call stack
+     olist.append("mpiPi_RecordTraceBack((*base_jbuf), call_stack, MPIP_CALLSITE_STACK_DEPTH);\n"  )
+ 
++    ######### ADD by Yuanjing
++    # show func --Yuanjing
++    olist.append("fprintf(mpiPi.recfile, \"Trace: Rank=%d Function: " + funct + "\\n\", mpiPi.rank);\n" )
++		
++    # show paras --Yuanjing
++    paras = "( "
++    for i in fdict[funct].paramConciseList:
++	paras += fdict[funct].paramDict[i].basetype;
++	if (fdict[funct].paramDict[i].pointerLevel == 0) \
++	   and (fdict[funct].paramDict[i].arrayLevel == 0) \
++	   and (fdict[funct].paramDict[i].basetype != "void"):
++	    paras += "*"
++	paras += " " + i
++	if fdict[funct].paramConciseList.index(i) < len(fdict[funct].paramConciseList) - 1:
++	    paras += ", "		
++    paras += " )"
++    olist.append("fprintf(mpiPi.recfile, \"Trace: Parameters: = " + paras + "\\n\");\n" )
++		
++    # show parasvalues --Yuanjing
++    values = ""
++    paras = ""
++    for i in fdict[funct].paramConciseList:
++	paras += fdict[funct].paramDict[i].basetype;
++	if (fdict[funct].paramDict[i].pointerLevel == 0) \
++	   and (fdict[funct].paramDict[i].arrayLevel == 0) \
++	   and (fdict[funct].paramDict[i].basetype != "void"):
++	    values += "*"
++	paras += " " + i + "= %d, "
++	values += i
++	if fdict[funct].paramConciseList.index(i) < len(fdict[funct].paramConciseList) - 1:
++	    values += ", "	
++    olist.append("fprintf(mpiPi.recfile, \"Trace: Paravalues: = (" + paras + ")\\n\", " + values + ");\n" )
++		
++    # show start time --Yuanjing
++    olist.append("fprintf(mpiPi.recfile, \"Trace: Starttime = [ %.0lf ]\\n\",mpiPi_SHOWTIME_DOUBLETYPE(&start));\n" )
++
+     # end of enabled check
+     olist.append("}\n\n")
+ 
+@@ -812,6 +848,13 @@
+ 		 + "mpiPi_GETTIME (&end);\n" 
+ 		 + "dur = mpiPi_GETTIMEDIFF (&end, &start);\n")
+ 
++    ######### ADD by Yuanjing
++    # show end time --Yuanjing
++    olist.append("fprintf(mpiPi.recfile, \"Trace: Endtime = [ %.0lf ]\\n\",mpiPi_SHOWTIME_DOUBLETYPE(&end));\n" )
++		
++    # show dur time --Yuanjing
++    olist.append("fprintf(mpiPi.recfile, \"Trace: Durtime = [ %.0lf ]\\n\",dur);\n" )
++		
+     if fdict[funct].sendCountPname != "":
+         olist.append( "\n" 
+                       + "if ( *" + fdict[funct].sendTypePname + " != MPI_DATATYPE_NULL ) { " 

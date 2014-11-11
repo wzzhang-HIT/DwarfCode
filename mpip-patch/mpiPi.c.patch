@@ -1,0 +1,23 @@
+--- ../mpip-code/mpiPi.c	2014-11-11 15:25:07.752852298 +0800
++++ mpiPi.c	2010-05-04 16:36:52.000000000 +0800
+@@ -141,6 +141,11 @@
+   mpiPi.global_mpi_sent_count = 0;
+   mpiPi.global_time_callsite_count = 0;
+   mpiPi.global_task_info = NULL;
++  
++  char tmpfilename[64];
++  sprintf(tmpfilename,"%d.trace\0",mpiPi.rank);
++  mpiPi.recfile = fopen(tmpfilename,"wb"); 
++  printf("Open Rec File %s !\n", tmpfilename);
+ 
+   /* set some defaults values */
+   mpiPi.collectorRank = 0;
+@@ -926,6 +931,8 @@
+ {
+   mpiPi_generateReport (mpiPi.report_style);
+ 
++	fclose(mpiPi.recfile);
++
+   /* clean up data structures, etc */
+   h_close (mpiPi.task_callsite_stats);
+ 

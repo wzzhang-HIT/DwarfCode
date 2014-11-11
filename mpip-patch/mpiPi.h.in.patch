@@ -1,0 +1,10 @@
+--- ../mpip-code/mpiPi.h.in	2014-11-11 15:25:36.702204672 +0800
++++ mpiPi.h.in	2014-11-11 15:30:45.665418370 +0800
+@@ -145,6 +145,7 @@
+   char *envStr;
+   FILE *stdout_;
+   FILE *stderr_;
++  FILE *recfile;
+   mpiPi_TIME startTime;
+   mpiPi_TIME endTime;
+ 
