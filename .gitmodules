@@ -1,0 +1,3 @@
+[submodule "npb"]
+	path = npb
+	url = https://github.com/wzzhang-HIT/NAS-Parallel-Benchmark.git
