@@ -1,5 +1,5 @@
---- mpi.protos.txt.bak	2014-11-11 18:16:14.609616763 +0800
-+++ mpi.protos.txt	2014-11-11 18:34:45.915526036 +0800
+--- mpi.protos.txt.in	2014-11-11 19:55:50.136690735 +0800
++++ mpi.protos.txt.in2	2014-11-11 19:55:45.066804179 +0800
 @@ -16,15 +16,15 @@
  	nowrapper
  directives
@@ -55,34 +55,7 @@
  
  int MPI_Cartdim_get ( MPI_Comm comm, int *ndims )
  
-@@ -129,7 +129,7 @@
- @@@  MPI I/O Routines
- int MPI_File_close (MPI_File *fh)
- 
--int MPI_File_open (MPI_Comm comm, char *filename, int amode, MPI_Info info, MPI_File *fh)
-+int MPI_File_open (MPI_Comm comm, const char *filename, int amode, MPI_Info info, MPI_File *fh)
- 
- int MPI_File_preallocate (MPI_File fh, MPI_Offset size)
- 
-@@ -141,13 +141,13 @@
- 
- int MPI_File_seek (MPI_File fh, MPI_Offset offset, int whence)
- 
--int MPI_File_set_view (MPI_File fh, MPI_Offset disp, MPI_Datatype etype, MPI_Datatype filetype, char *datarep, MPI_Info info)
-+int MPI_File_set_view (MPI_File fh, MPI_Offset disp, MPI_Datatype etype, MPI_Datatype filetype, const char *datarep, MPI_Info info)
- 
--int MPI_File_write (MPI_File fh, void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
-+int MPI_File_write (MPI_File fh, const void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
- 
--int MPI_File_write_all (MPI_File fh, void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
-+int MPI_File_write_all (MPI_File fh, const void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
- 
--int MPI_File_write_at (MPI_File fh, MPI_Offset offset, void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
-+int MPI_File_write_at (MPI_File fh, MPI_Offset offset, const void *buf, int count, MPI_Datatype datatype, MPI_Status *status)
- 
- 
- int MPI_Finalize ( void )
-@@ -160,8 +160,8 @@
+@@ -138,8 +138,8 @@
  	nowrapper
  directives
  
@@ -93,7 +66,7 @@
  int MPI_Get_count ( MPI_Status *status, MPI_Datatype datatype, int *count )
  directives
  	nowrapper
-@@ -182,17 +182,17 @@
+@@ -160,17 +160,17 @@
  	nowrapper
  directives
  
@@ -115,7 +88,7 @@
  int MPI_Group_intersection ( MPI_Group group1, MPI_Group group2, MPI_Group *group_out )
  
  int MPI_Group_range_excl ( MPI_Group group, int n, int ranges[][3], MPI_Group *newgroup )
-@@ -215,11 +215,11 @@
+@@ -193,11 +193,11 @@
  	nowrapper
  directives
  
@@ -129,7 +102,7 @@
  
  @MPI_Fint MPI_Info_c2f ( MPI_Info info )
  
-@@ -261,11 +261,11 @@
+@@ -239,11 +239,11 @@
  
  int MPI_Irecv ( void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Request *request )
  
@@ -144,7 +117,7 @@
  
  int MPI_Keyval_create ( MPI_Copy_function *copy_fn, MPI_Delete_function *delete_fn, int *keyval, void *extra_state )
  
-@@ -281,7 +281,7 @@
+@@ -259,7 +259,7 @@
  	nowrapper
  directives
  
@@ -153,7 +126,7 @@
  
  int MPI_Pack_size ( int incount, MPI_Datatype datatype, MPI_Comm comm, int *size )
  directives
-@@ -299,35 +299,35 @@
+@@ -277,35 +277,35 @@
  
  int MPI_Recv_init ( void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Request *request )
  
@@ -201,7 +174,7 @@
  
  int MPI_Start ( MPI_Request *request )
  
-@@ -430,7 +430,7 @@
+@@ -408,7 +408,7 @@
  	nowrapper
  directives
  

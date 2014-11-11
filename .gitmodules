@@ -1,3 +1,6 @@
 [submodule "npb"]
 	path = npb
 	url = https://github.com/wzzhang-HIT/NAS-Parallel-Benchmark.git
+[submodule "mpip-code"]
+	path = mpip-code
+	url = https://github.com/wzzhang-HIT/mpiP.git
