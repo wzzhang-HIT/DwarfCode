@@ -82,7 +82,7 @@ CLINK	= $(MPICC)
 #---------------------------------------------------------------------------
 # These macros are passed to the linker to help link with MPI correctly
 #---------------------------------------------------------------------------
-CMPI_LIB  = -L@PROJECT_SOURCE_DIR@/mpip-code/lib -lmpiP -lbfd -liberty -lm
+CMPI_LIB  = -L@PROJECT_SOURCE_DIR@/mpip-code/lib -lmpiP -lbfd -liberty -lm -lunwind
 
 #---------------------------------------------------------------------------
 # These macros are passed to the compiler to help find 'mpi.h'
