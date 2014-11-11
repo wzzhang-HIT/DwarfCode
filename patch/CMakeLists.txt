@@ -20,5 +20,14 @@ if(NOT EXISTS ${PROJECT_SOURCE_DIR}/mpip-code/ChangeLog)
       ${PROJECT_SOURCE_DIR}/mpip-code/mpiPi.h.in 
       ${CMAKE_CURRENT_SOURCE_DIR}/mpiPi.h.in.patch
       )
+   execute_process(COMMAND patch
+      ${PROJECT_SOURCE_DIR}/mpip-code/mpip_timers.h
+      ${CMAKE_CURRENT_SOURCE_DIR}/mpip_timers.h.patch
+      )
+   execute_process(COMMAND patch
+      ${PROJECT_SOURCE_DIR}/mpip-code/mpi.protos.txt
+      ${CMAKE_CURRENT_SOURCE_DIR}/mpi.protos.txt.patch
+      )
 endif()
 
+configure_file(make.def.in ${PROJECT_SOURCE_DIR}/npb/NPB3.3-MPI/config/make.def @ONLY)

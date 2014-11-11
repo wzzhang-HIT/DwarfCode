@@ -1,0 +1,10 @@
+--- mpip_timers.h	2014-11-11 15:55:47.792703992 +0800
++++ /home/xiehuc/DwarfCode/mpiP-3.1.2/mpip_timers.h	2010-05-04 17:12:32.000000000 +0800
+@@ -60,6 +60,7 @@
+ #define mpiPi_PRINTTIME(taddr) printf("Time is %ld sec and %ld usec.\n", (taddr)->tv_sec, (taddr)->tv_usec)
+ #define mpiPi_GETTIMEDIFF(end,start) ((mpiP_TIMER)((((mpiPi_TIMER)(end)->tv_sec)*USECS)+(end)->tv_usec)-((((mpiPi_TIMER)(start)->tv_sec)*USECS)+(start)->tv_usec))
+ #define mpiPi_PRINTTIMEDIFF(end,start) {printf("Time diff is %ld usecs.\n",mpiPi_GETTIMEDIFF(end,start));}
++#define mpiPi_SHOWTIME_DOUBLETYPE(t) ((mpiP_TIMER)((((mpiPi_TIMER)(t)->tv_sec)*USECS)+(t)->tv_usec))
+ 
+ #endif
+ 
