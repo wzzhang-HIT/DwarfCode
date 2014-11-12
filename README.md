@@ -6,7 +6,7 @@ DwarfCode is a performance prediction tool for MPI applications on diverse compu
 Authors:	
 -------
 1. wzzhang-HIT: <wzzhang@hit.edu.cn>
-2. yuanjing zhang: <zhangyuanjing@nis.edu.cn>
+2. yuanjing zhang: <zhangyuanjing@nis.hit.edu.cn>
 3. xiehuc: <xiehuc@gmail.com>
 
 License:	GPLv3
