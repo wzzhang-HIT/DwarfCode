@@ -3,6 +3,13 @@ DwarfCode
 DwarfCode is a performance prediction tool for MPI applications on diverse computing platforms. The goal is to accurately predict the running time of applications for task scheduling and job migration. First, DwarfCode collects the execution traces to record the computing and communication events. Then, it merges the traces from different processes into a single trace. After that, DwarfCode identifies and compresses the repeating patterns in the final trace to shrink the size of the events. Finally, a dwarf code is generated to mimic the original program behavior. This smaller running benchmark is replayed in the target platform to predict the performance of the original application.
 
 =========
+Authors:	
+-------
+wzzhang-HIT <wzzhang@hit.edu.cn>
+yuanjing zhang<zhangyuanjing@nis.edu.cn>
+xiehuc <xiehuc@gmail.com>
+
+License:	GPLv3
 
 Build
 -------
