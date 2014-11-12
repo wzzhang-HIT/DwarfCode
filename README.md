@@ -8,7 +8,8 @@ Authors:
 1. wzzhang-HIT: <wzzhang@hit.edu.cn>
 2. yuanjing zhang: <zhangyuanjing@nis.hit.edu.cn>
 3. xiehuc: <xiehuc@gmail.com>
- License:	GPLv3
+ 
+License:	GPLv3
 
 Build
 -------
