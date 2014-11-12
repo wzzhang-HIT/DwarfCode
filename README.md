@@ -9,7 +9,7 @@ Authors:
 2. yuanjing zhang: <zhangyuanjing@nis.hit.edu.cn>
 3. xiehuc: <xiehuc@gmail.com>
 
-License:	GPLv3
+ License:	GPLv3
 
 Build
 -------
@@ -24,7 +24,7 @@ Description
 -------------
 
 1. trace2symbol.cpp and order.cpp:  record and symbolize the communication and computation events
-2. combine.cpp:                     merge the traces from these processes into a single trace 
+2. combine.cpp:                     merge the traces from different processes into a single trace 
 3. circle.cpp:                      identify and compress the repeating patterns in the trace to shrink the events size
 4. reconstruct.cpp:                 convert the merged and compressed trace into an executable program
 
