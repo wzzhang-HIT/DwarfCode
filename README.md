@@ -16,9 +16,9 @@ Build
 Description
 -------------
 
-trace2symbol.cpp and order.cpp  record and symbolize the communication and computation events
-combine.cpp                     merge the traces from these processes into a single trace 
-circle.cpp                      identify and compress the repeating patterns in the trace to shrink the events size.
-reconstruct.cpp                 convert the merged and compressed trace into an executable program
+1. trace2symbol.cpp and order.cpp  record and symbolize the communication and computation events
+2. combine.cpp                     merge the traces from these processes into a single trace 
+3. circle.cpp                      identify and compress the repeating patterns in the trace to shrink the events size.
+4. reconstruct.cpp                 convert the merged and compressed trace into an executable program
 
 
